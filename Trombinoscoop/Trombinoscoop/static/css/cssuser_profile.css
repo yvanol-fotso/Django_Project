@@ -1,0 +1,127 @@
+body{
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+
+/* student form */
+
+#studentForm label{
+	margin-right:5%;
+	
+}
+
+#studentForm input{
+	width:20%;
+	height:30px;	
+}
+
+
+
+#studentForm input[type='submit']{
+	width:20%;
+	margin-left:9%;
+	background-color:silver;
+	color:blue;
+	margin-bottom:25px;
+	
+}
+
+#studentForm select{
+	width:20%;
+	height:30px;
+}
+
+#studentForm input[name='nom']{
+	margin-right:2%;
+	
+}
+
+#studentForm input[name='prenom']{
+	margin-right:2%;
+	
+}
+
+#studentForm input[name='date_de_naissance']{
+	margin-right:6%;	
+}
+
+#studentForm input[name='matricule']{
+	margin-right:2%;
+	
+}
+
+#studentForm input[name='courriel']{
+	margin-right:1%;
+	
+}
+
+#studentForm input[name='tel_fixe']{
+	margin-right:2%;
+	
+}
+
+#studentForm input[name='tel_mobile']{
+	margin-right:3%;
+	
+}
+
+#studentForm input[name='mot_de_passe']{
+	margin-right:3%;
+	
+}
+
+
+/* employee form */
+
+#employeeForm label{
+	margin-right:5%;
+	
+}
+
+#employeeForm input{
+	width:20%;
+	height:30px;	
+}
+
+#employeeForm input[type='submit']{
+	width:20%;
+	margin-left:9%;
+	background-color:silver;
+	color:blue;	
+}
+
+#employeeForm select{
+	width:20%;
+	height:30px;
+}
+
+#employeeForm input[name='prenom']{
+	margin-right:1%;	
+}
+
+#employeeForm input[name='date_de_naissance']{
+	margin-right:6%;	
+}
+
+#employeeForm input[name='matricule']{
+	margin-right:2%;	
+}
+
+#employeeForm input[name='courriel']{
+	margin-right:1%;
+	
+}
+
+#employeeForm input[name='tel_fixe']{
+	margin-right:2%;	
+}
+
+#employeeForm input[name='tel_mobile']{
+	margin-right:3%;	
+}
+
+#employeeForm input[name='mot_de_passe']{
+	margin-right:3%;	
+}

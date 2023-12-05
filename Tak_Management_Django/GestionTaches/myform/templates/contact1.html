@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %} Nouveau Contact {% endblock %}
+
+{% block navtitle %} Nouveau Contact {% endblock %}
+
+{% block content%} 
+
+    <form action="contact1" method="POST"> 
+    	{% csrf_token %}
+
+
+        {{ form }} 
+        
+        <button type="submit"> Sauvegarder </button> 
+    </form> 
+
+{% endblock %}
+ 		

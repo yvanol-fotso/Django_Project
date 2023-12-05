@@ -1,0 +1,223 @@
+            {% load i18n static %}
+
+            {% comment %}
+            <!-- lang-->
+            <div id="topbar lang" class="p-1">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        <div class="col-lg-12 text-center">
+                            <ul class="menu list-inline mb-0">
+                                {% for language in languages %}
+                                    <li class="list-inline-item {% if language.code == LANGUAGE_CODE %} active {% endif %}">
+                                        <a href="/{{ language.code }}{{ next }}" class="font-weight-normal">
+                                            {{ language.name_local }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./lang-->
+
+           {% endcomment %} 
+
+            <!-- topbar-->
+            <div id="lang">
+                <div class="container">
+                    <div class="row d-flex align-items-center text-center">
+                        <div class="col-12">
+                            <!-- section service content -->
+                            <div class="btn btn-sm shadow-none icon d-inline-flex align-items-center text-left">
+                                <div class="text-center icon-wrap icon-sm rounded-circle border-success border text-success d-inline-block position-relative">
+                                    <i class="ps-icon-customer-service"></i>
+                                </div>
+
+                                <div class="text-wrap d-none d-md-inline-block">
+                                    <div class="font-weight-bolder">{% trans "Call us" %}</div>
+                                    <small class="d-block">00 000 000 / 00 000 000</small>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-sm shadow-none icon d-inline-flex align-items-center text-left">
+                                <div class="text-center icon-wrap icon-sm rounded-circle border-success border text-success d-inline-block position-relative">
+                                    <i class="ps-icon-delivery"></i>
+                                </div>
+
+                                <div class="text-wrap d-none d-md-inline-block">
+                                    <div class="font-weight-bolder">{% trans "Free delivery" %}</div>
+                                    <small class="d-block">{% trans "in less than 24H" %}</small>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-sm shadow-none icon d-inline-flex align-items-center text-left">
+                                <div class="text-center icon-wrap icon-sm rounded-circle border-success border text-success d-inline-block position-relative">
+                                    <i class="icon-clock"></i>
+                                </div>
+
+                                <div class="text-wrap d-none d-md-inline-block">
+                                    <div class="font-weight-bolder">{% trans "Availability" %}</div>
+                                    <small class="d-block">{% trans "7 days/7" %}</small>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-sm shadow-none icon d-inline-flex align-items-center text-left">
+                                <div class="text-center icon-wrap icon-sm rounded-circle border-success border text-success d-inline-block position-relative">
+                                    <i class="icon-credit-card"></i>
+                                </div>
+
+                                <div class="text-wrap d-none d-md-inline-block">
+                                    <div class="font-weight-bolder">{% trans "Payment" %}</div>
+                                    <small class="d-block">{% trans "in complete security" %}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--./topbar-->
+
+            <!-- topbar-->
+            <div id="topbar" class="p-1">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-6 text-center offer mb-2 mb-lg-0 text-white">
+                            <a href="#" class="btn btn-success btn-sm text-white">Offer of the day</a>
+                            <a href="#" class="ml-1 text-white">Get flat 35% off on orders over $50!</a>
+                        </div>
+
+                        <div class="col-lg-6 text-center offer mb-lg-0">
+                            <div class="d-flex justify-content-end justify-content-between pt-3">
+                                {% if user.is_authenticated %}
+                                    <ul class="list-inline d-block d-md-none">
+                                        <a class="login-btn text-white">
+                                           hello {{ user }} <b class="font-weight-bold text-capitalize">
+                                            {{ user.username }}</b>
+                                        </a>
+                                    </ul>
+
+                                    <div class="login">
+                                        <span class="login-btn text-white mr-2">
+                                            <span class="login-btn text-white d-none d-md-inline-block">
+                                               hello
+                                                <b class="font-weight-bold text-capitalize">
+                                                {{ user.pseudo }}</b>
+                                            </span>
+                                        </span>
+
+                                        <a href="" class="login-btn text-white mr-2">
+                                            <span class="d-none d-md-inline-block font-weight-bold text-capitalize">
+                                                <i class="fa fa-user mr-1"></i>
+                                               your profile
+                                            </span>
+                                        </a>
+
+                                        <a href=" " class="login-btn text-white font-weight-bold">
+                                            <i class="fa fa-shopping-bag mr-1"></i>
+                                           your orders
+                                        </a>
+                                    </div>
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="" class="text-white font-weight-bold text-capitalize">
+                                                <i class="fas fa-sign-out-alt mr-1"></i>
+                                                <span class="d-none d-xl-inline-block">
+                                                   logout
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                {% else %}
+                                    <div class="login">
+                                        <a href="" class="login-btn text-white mr-2">
+                                            <i class="fa fa-user mr-1"></i>
+                                           your profile
+                                        </a>
+
+                                        <a href="" class="login-btn text-white">
+                                            <i class="fa fa-shopping-bag mr-1"></i>
+                                           your orders
+                                        </a>
+                                    </div>
+
+                                    <ul class="list-inline">
+                                        <a href="" class="login-btn text-white mr-2">
+                                            <i class="fas fa-sign-in-alt mr-1"></i>
+                                           login
+                                        </a>
+
+                                        <a href="" class="login-btn text-white">
+                                            <i class="fas fa-user-plus mr-1"></i>
+                                           signup
+                                        </a>
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--./topbar-->
+
+            <!-- Navbar -->
+            <nav role="navigation" class="sticky-top" id="header">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-3 text-center text-lg-right my-sm-2">
+                            <!-- Navbar brand -->
+                            <div class="header-logo">
+                                <a href="" class="d-block text-uppercase font-weight-bold">{{ site_name }}
+                                </a>
+                            </div><!-- ./Navbar brand -->
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="header-search">
+                                <!-- search -->
+                                <form role="search" class="position-relative" action="">
+                                    <div class="input-group">
+                                        <input class="input form-control border shadow-none" type="search" placeholder="{% trans "Search for a product or category..." %}" aria-label="search" name="q" autocomplete="false">
+                                        <div class="input-group-append shadow-none">
+                                            <button class="shadow-none border-0 input-group-text btn-success search-btn text-white" type="submit">{% trans "Search" %}</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Links right-->
+                        <div class="col-md-3 text-center text-lg-left my-sm-2">
+                            <div class="header-ctn">
+                                <div>
+                                    {% if request.user.is_authenticated %}
+                                        <a class="nav-link" href="">
+                                            <i class="icon-bag mr-1"></i>
+                                            <span>{% trans "Cart" %}</span>
+                                            <div class="cart-quantity text-white font-weight-bold">
+                                                {% with total_items=panier|length %}
+                                                    {% if panier|length > 0  %}
+                                                        {{ total_items }}
+                                                    {% else %}
+                                                        0
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                        </a>
+                                    {% else %}
+                                        <a class="nav-link" href="">
+                                            <i class="icon-bag"></i>
+                                            <span>{% trans "Cart" %}</span>
+                                            </a>
+                                    {% endif %}
+                                </div>
+                            </div><!-- ./Links left-->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--/.Navbar-->

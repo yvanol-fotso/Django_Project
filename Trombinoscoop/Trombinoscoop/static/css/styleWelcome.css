@@ -1,0 +1,83 @@
+*{
+	text-align: center;
+
+}
+
+body{
+	text-align: center;
+}
+
+
+#name{      
+        margin-top:40px;
+		margin-bottom: 40px; 
+		font: 40px Monotype Corsiva;
+}
+
+#profilelinks a{
+	display:inline-block;
+	padding: 25px 20px;
+
+}
+
+#profilelinks{
+	width:50%;
+	margin-left:25%;
+	align-items:center;
+	border :solid;
+	border-radius:20px;
+}
+
+.inlineForm{
+	margin-right:18%;
+}
+
+.newMessagelnput{
+	margin-left:12%;
+}
+
+
+input[type='text']{
+	border-radius: 5px;
+	width:56%;
+	height:40px;
+}
+
+input[type='email']{
+	border-radius: 5px;
+	width:57%;
+	height:40px;
+}
+
+
+input[type='submit']{
+	border-radius: 5px;
+	height:40px;
+	color: olive;
+}
+
+input[type='submit']:hover{
+	background-color:coral;
+	color:white;
+}
+
+.buttonlinkAdd{
+	padding:5px;
+	width:50%;
+	height:40px;
+	text-decoration: none;
+	text-align:center;
+	display:inline-block;
+	border:solid;
+	border-radius:10px;
+}
+
+.buttonlinkAdd:hover{
+	background-color:chocolate;
+	color:white;
+}
+
+
+ul .errorlist { margin-left: 160px; padding: O; list-style-type: none; color: #d23d24; } 		
+		
+		

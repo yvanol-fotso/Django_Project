@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% load  static %}
+
+{% block title %}Ajout d'un ami{% endblock %}
+
+{% block bodyid %}addUserPage{% endblock %}
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/cssaddfriend.css' %}" />{% endblock %}
+
+{% block content %} 
+  <hl style="font:35px Monotype Corsiva;margin-top=40px;"><u>Ajout d'un ami</u></hl> 
+
+  <form action="add_friend" method="get"> 
+  	{{  form.as_p }} 
+  	<p> <input type="submit" value="Ajouter" /> </p> 
+  </form> 
+
+  <!-- usage de ajax -->
+
+  <Script type="text/javascript"> 
+  	$(document).ready(function() { 
+  	   $("#friendlist form").submit(addFriend);
+  	 }) ; 
+    
+    function addFriend() { 
+      $fieldValue = $("#newFriendlnput").val(); 
+
+      $.ajax({ 
+      url : 'ajax-addFriend', 
+      data: ({email : $fieldValue}) ,
+      type: 'GET', 
+      success: function($data, $textStatus, $XMLHttpRequest) { 
+      	// alert($data);
+      	$('#friendlist ul').prepend($data); 
+      } 
+
+     });
+
+    return false;  
+</script> 
+
+{% endblock %} 

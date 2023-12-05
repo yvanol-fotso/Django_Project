@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+{% load static %} 
+<html lang="fr" > 
+<head> 
+	<meta charset="utf-8" > 
+	<title> {% block title %}{% endblock %} </title> 
+	<link rel="stylesheet" href="{% static 'css/mon.css' %}" > 
+</head> 
+<body> 
+	<header> <h2> Gestion des Taches </h2> </header>
+
+    <section> {% block content %} {% endblock %} </section>
+    <footer style="align-items: center;text-align: center; display: block; height: 5%;"> <em><u>Copyright by Fotso, 2022</u></em> </footer>
+
+</body> 
+</html>

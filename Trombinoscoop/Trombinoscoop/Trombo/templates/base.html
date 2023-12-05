@@ -1,0 +1,117 @@
+{% load  static %}
+
+<html> 
+<head> 
+	<title>Trombinoscoop -{% block title%}{% endblock %} </title>
+	
+	   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+	   <link rel="stylesheet" type="text/css" href="{% static 'css/cssfooter.css' %}" />
+	   
+	   <style>
+	     nav{width:100%;height:; text-align:center; background-color:cornflowerblue;}
+         nav ul{display:table;}
+         nav ul li{float:left;list-style-type:none;}
+         nav ul li:last-child{padding-right:0px; }
+         nav ul li a{color:white;text-decoration: none; font-size:18px; padding: 20px 125px; display:inline-block; transition: all 0s ease 0s;}
+         nav ul li a:hover{background-color:#002e5b; color:#fde428; transition: all 0.5s ease 0s;}
+       </style>
+
+	   {% block css %}{% endblock %}
+		
+	{% block js %}{% endblock %}
+
+</head> 
+<body id="{% block bodyid%} genericPage {% endblock %}">
+
+    <header > 
+	  <div>
+         <img src="{% static 'img/logo.jpg' %}" width="100%">	  
+	  </div>
+	</header>
+	
+	<nav> 
+	   <ul class="menu">
+             <li><a href="welcome">Accueil</a></li>
+             <li><a href="login">Login</a></li>
+             <li><a href="register">Register</a></li>
+             <li><a href="#">Log-Out</a></li>               
+	   </ul>
+	</nav>
+
+
+	<section> 
+	    {% block headerContent %}{% endblock %}
+	</section>
+
+	<Section id="content">
+	    {% block content %} {% endblock %} 
+
+	</section>
+
+      <!-- blog pour publiciter -->
+
+    <div class="publicite" style="margin-bottom:20px;">
+		   <img src="{% static 'img/remise.gif' %}" alt="publicité" width="100%" height="60px"/>
+	  </div>
+
+
+ <!-- End of Contact Section -->
+
+      <footer>
+        <div class="wrapper">
+          <div class="footer-container">
+             <div class="footer-left">
+                <img src="{% static 'img/logofooter.jpg' %}" alt=""  style="border-radius:50%;">
+             </div>
+
+             <div class="footer-center">
+                <h4 class="list-title">Quick Links</h4>
+
+                <ul>
+                  <li>
+                     <a href="welcome">Welcome</a>
+                  </li>
+
+                  <li>
+                     <a href="add_friend">AddFriend</a>
+                  </li>
+
+                  <li>
+                     <a href="show_profile">Show-Profile</a>
+                  </li>
+
+                  <li>
+                    <a href="modify_profile">Modify Profile</a>
+                  </li>
+                </ul>
+             </div>
+
+            <div class="footer-right">
+                <h4 class="list-title">Follow us on</h4>
+
+                <div class="social-icons">
+                   <a href="#">
+                      <img src="{% static 'img/instagram-logo.png' %}" alt="" />
+                   </a>
+
+                   <a href="#">
+                      <img src="{% static 'img/facebook-logo.png' %}" alt="" />
+                   </a>
+
+                   <a href="#">
+                      <img src="{% static 'img/twitter-logo.png' %}" alt="" />
+                   </a>
+            </div>
+
+            <p>This website is developed by fotso &copy; 2021</p>
+
+          </div>
+        </div>
+      </footer>
+
+     
+
+    <script src="{% static 'js/jquery.min.js' %}"></script> 
+  	
+</body> 
+</html> 

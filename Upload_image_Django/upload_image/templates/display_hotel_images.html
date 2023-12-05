@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>image</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+
+</head>
+<body>
+
+	<h1> <u>Hotel images byFotso &copy; 2021 </u></h1>
+
+	{% for  hotel in hotel_images %}
+	    <div class="see">
+	    	{{ hotel.name }} <br> <br>
+	    	<img src=" {{ hotel.hotel_image.url }}" style=" width: 30%; height: 20%;">
+	    </div>
+	{% endfor %}    
+
+	
+
+    <p><a href="/">Back To  upload And Image</a></p>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'baseLayout.html' %} 
+
+{% block title %} Liste {% endblock %} 
+
+{% block content %} 
+  
+  <h3>Tâches en cours ou terminées</h3> 
+  <ul> 
+
+  	{% for tache in tasches %}
+
+  	<li> 
+  		<h3> 
+  			{% if tache.closed %} 
+  			  <span class="closed">{{tache.name}}</span> 
+  		    {% else %} 
+  		      {{tache.name}} 
+  		    {% endif %} 
+  		</h3> 
+
+  		<h4>{{tache.description }} </h4> 
+  		<p style="color: orange"> Date de rendu: {{ tache.colored_due_date}} </p> 
+  		<p> Date de debut: {{tache.created_date}} </p> 
+  	</li> 
+  {% endfor %} 
+</ul>
+
+{# commentaire en django ici une autre facon d'affichage #}
+
+<h1>Liste des tâches</h1> 
+  <ul> 
+  	{% for task in tasches %} 
+  	<li>{{task}}</li> 
+    {% endfor %} 
+  </ul> 
+
+{% endblock %} 
+
+

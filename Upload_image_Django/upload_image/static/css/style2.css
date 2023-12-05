@@ -1,0 +1,29 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	align-items: center;
+
+}
+
+h1{
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.see{
+	display: inline-block;
+	width: 20%;
+	margin-bottom: 5%;
+}
+
+p a{
+	margin-top: 2%;
+	display: inline-block;
+	border: solid;
+	width:30%;
+	padding: 2%;
+	background-color: violet;
+	color: white;
+}
+

@@ -1,0 +1,72 @@
+body{
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+
+*{
+	text-align: center;
+
+}
+
+/* car le formulaire a ete creer avecc django.forms il faut cibler les balise html correspondante*/
+label{
+	margin-right:5%;
+	
+}
+
+input{
+	width:20%;
+	height:30px;
+	
+}
+
+
+
+input[type='submit']{
+	width:20%;
+	margin-left:9%;
+	background-color:silver;
+	color:blue;
+	
+}
+
+select{
+	width:20%;
+	height:30px;
+}
+
+input[name='prenom']{
+	margin-right:1%;
+	
+}
+
+input[name='date_de_naissance']{
+	margin-right:6%;
+	
+}
+input[name='matricule']{
+	margin-right:2%;
+	
+}
+
+input[name='courriel']{
+	margin-right:1%;
+	
+}
+
+input[name='tel_fixe']{
+	margin-right:1%;
+	
+}
+
+input[name='tel_mobile']{
+	margin-right:2%;
+	
+}
+
+input[name='mot_de_passe']{
+	margin-right:3%;
+	
+}

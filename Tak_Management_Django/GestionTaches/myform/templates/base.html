@@ -1,0 +1,43 @@
+<!doctype html>
+
+  {% load static %}
+
+<html lang="fr"> 
+<head> 
+	<meta charset="utf-8"> 
+	<title> {% block title %}{% endblock %} </title> 
+
+	 {% block metas %} 
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+	 {% endblock %} 
+
+	 {% block styles %} 
+	   <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}"> 
+	 {% endblock %} 
+</head>
+
+<body> 
+     <header class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+       {% block header %} {% endblock %} 
+     </header>
+	
+	  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        {% block navtitle %}{% endblock %} 
+    </nav> 
+   
+
+    <main role="main" class="container top-pushed">
+    
+      <div class="jumbotron"> 
+
+       {% block content %} {% endblock %} 
+
+      </div> 
+     </main> 
+
+     {% block js %} 
+        <script src="{% static 'bootstrap/jquery.min.js' %}"></script> 
+        <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script> 
+     {% endblock %} 
+ </body>
+</html>

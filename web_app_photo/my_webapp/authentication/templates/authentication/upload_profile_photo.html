@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <style>.asteriskField {display: none;}</style>
+
+
+   <!-- Main product Layout View -->
+    <main class="p-5">
+        <div class="container">
+            <!-- Grid row -->
+            <section class="contact-section row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="d-flex align-items-md-center">
+                        <div class="col">
+                            <h3 class="font-weight-bold text-center text-success text-capitalize">
+                                change sa photo de profile 
+                            </h3>
+                            <p class="text-muted text-justify text-center">
+                               Upload your image profile   in a few clicks !
+                            </p>
+
+                            {%  if form.errors %}
+                              {{ form.errors }}
+                            {% endif %}  
+
+                           
+                            {% if form.non_field_errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for error in form.non_field_errors %}
+                                        <p {% if forloop.last %} class="mb-0"{% endif %}>
+                                            {{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            
+
+                            <form method="POST" novalidate enctype="multipart/form-data">
+                                 {% csrf_token %}
+
+                                <div class="md-form form-group mb-3">
+                                    {% for field in form %}
+                                    
+                                   
+                                        <input name="{{ field.name }}" placeholder="{{ field.label }}"
+                                        class="form-control shadow-none px-2" type="file" accept=".jpg,.jpeg,.png">
+                    
+                                    {% endfor %}
+                                    
+                                    {% for error in field.errors %}
+                                            <div class="invalid-feedback">{{ error }}</div>
+                                      
+                                    {% endfor %}
+                                </div>
+
+                                <button type="submit" class="btn btn-success btn-block text-uppercase rounded-pill shadow-sm">
+                                    Publier
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </section><!-- ./Grid row -->
+        </div>
+    </main><!-- ./Main product Layout View -->
+
+
+{% comment %}
+sa me permet de deboguer et voir ce que je doit faire dans bootstrap sur les champ
+    <form method="post">
+        
+       {% csrf_token %}
+
+       {{ form.as_p }}
+
+       <button type="submit">Publier</button>
+       
+
+    </form>
+
+
+{% endcomment %}
+
+
+{% endblock content %}

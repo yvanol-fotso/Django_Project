@@ -1,0 +1,51 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
+        <!-- meta header-->
+        {% include "_includes/csslink.html" %}
+         <!-- ./meta header -->
+
+        <!-- titre -->
+        <title>
+            Todo list by Yvanol Fotso
+        </title>
+        <!-- ./titre -->
+    </head>
+
+
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 flex-shrink-0">
+            <!-- Start your project here-->
+            {% include "_includes/navbar.html" %}
+
+
+            <div>
+                   <h2 onclick="location.href='{% url "mytodo:index" %}'  "  style="margin-top: 5%; text-align: center; align-items: center; border-bottom: solid 1px gray;" class="text text-success">
+                    Django 4.1.7 To-do Lists Pro 
+                  </h2>
+
+            </div>
+
+
+            <!-- Contenu de la page -->
+            {% block content %}
+            
+            {% endblock content %}
+
+            
+            {# commentaire sur une ligne #}
+
+            {% comment %}
+               commentaire sur plusieur ligne...
+            {% endcomment %}   
+
+
+        </div>
+
+        {% include "_includes/footer.html" %}
+        {% include "_includes/jscripts.html" %}
+    </body>
+</html>

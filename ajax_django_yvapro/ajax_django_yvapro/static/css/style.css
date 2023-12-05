@@ -1,0 +1,29 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	align-items: center;
+
+}
+
+h1{
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+label{
+    display: inline-block;
+    width: 0;
+    margin-right:6%;
+}
+
+input[type='text']{
+    width:20%;
+    height: 10%;
+    margin-bottom: 2%;
+}
+         
+input[type='submit']{
+    background-color: violet;
+    color: blue;
+}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+
+{% comment %}
+      le nom de cette vue a ete donneer par django disant que la vue "todolist_form.html " n'existe pas c'est alors donc j'ai pris ce nom et creer cet vu avec et sa passe c'est la puissance des vue generic .
+
+      puisque dans la classe ListCreate(CreateView): je n'ai pas preciser le template name alors quesceque django fait il utilise le nom de model aue j'ai specifier pour cette classe il ajoute un unserscore et concatene a form.html et te dmande de creer une vue ayant ce nom la pour pour /qui sera utiliser par cette classe
+
+{% endcomment %}
+
+   
+
+
+{% block content %}
+
+ <h3>{{ title }}</h3>
+
+   <div>
+
+    <div>
+    
+     <form method="post">
+       
+       {% csrf_token %}
+       {{ form.as_p }}
+
+
+     <input value="Save" type="submit">
+     <input value="Cancel" type="button" onclick="location.href='{% url "mytodo:index" %}';">
+
+    </form>
+
+ </div>
+
+</div>
+
+
+{% endblock %}

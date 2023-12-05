@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load  static %} 
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/styleWelcome.css' %}" />{% endblock %}
+
+{% block headerContent %}
+
+ 
+
+<p id="name"><marquee><i> Welcome Mr: {{ logged_user.prenom }} {{ logged_user.nom }} </i></marquee></p> 
+<p id="name">Welcome Mr:{{ logged_user.prenom }} {{ logged_user.nom }} </p> 
+<p id="function"> 
+   {%if logged_user.type_de_personne == 'student' %} 
+    Étudiant en 
+     {% if logged_user.annee == 1 %} 
+       {{ logged_user.annee }}ère 
+     {% else %} 
+       {{ logged_user.annee }}ème 
+     {% endif %} 
+     {{ logged_user.cursus.intitule }} 
+   {% else %} 
+      {{ logged_user.fonction.intitulelcapfirst }} dans la faculté 
+        {{ logged_user.faculte }} 
+   {% endif %} 
+</p> 
+
+<p id="profilelinks"> 
+	<a href="show_profile?userToShow={{ logged_user.id }}" class="buttonlink">Voir le profil</a> 
+    <a href="modify_profile" class="buttonlink">Modifier le profil</a> 
+</p> 
+
+{% endblock %} 
+
+{% block content %} 
+   <section id="messagelist">
+   	  <form action="welcome" method="get" class="inlineForm"> 
+   	  	 <label class="newMessagelnput" for="newMessagelnput">Publier un message :</label> 
+   	  	 <input type="text" name="newMessage" id="newMessagelnput" /> 
+   	  	 <input type="submit" value="Publier" /> 
+   	  </form> 
+
+   	  <ul> 
+   	  	{% for message in friendMessages %} 
+
+   	  	 <li> <p> <a href="show_profile?userToShow={{ message.auteur.id }}">{{ message.auteur.prenom}} {{message.auteur.nom }}</a> dit : </p> 
+   	  	 	  <p>{{ message.contenu }}</p> 
+   	  	 </li> 
+   	  	{% endfor %} 
+   	  </ul> 
+   
+   </section> 
+   <section id="friendlist">
+   	 {# <p class="title">Ajout des ami(e)s</p>  #}
+
+     <!-- ajouter des amis via ajax -->
+       <form action="welcome" method="get" class="inlineForm">
+         <label class="newMessagelnput" for="newFriendinput">Ajout des ami(e)s:</label> 	   
+         <input type="email" name="newFriend" id="newFriendinput" placeholder="Entrez son Courriel" /> 
+         <input type="submit" value="Ajouter" />
+       </form>  
+     <!-- ajouter des amis via ajax -->
+     
+     
+   	 <p><a href="add_friend" class="buttonlinkAdd">Ajouter via ce lien</a></p> 
+	 
+	 <p class="title" style="font:35px Monotype Corsiva;"><u>Liste de Mes amis: </u></p> 
+   	 <ul  style="list-style-type:none;">  
+   	 	{% for ami in logged_user.amis.all %} 
+   	 	  <li><a href="show_profile?userToShow={{ ami.id}}">{{ ami.prenom}} {{ ami.nom }}</a></li> 
+   	    {% endfor %} 
+   	</ul> 
+
+   </section> 
+{% endblock %} 

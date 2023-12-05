@@ -1,0 +1,27 @@
+body{
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+
+*{
+	text-align: center;
+
+}
+
+.fieldlist{
+	display:inline;
+	
+}
+
+dt{
+	width:90%;
+}
+
+dd{
+	
+	width:;
+	margin-left:10%;
+	
+}   

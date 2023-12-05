@@ -1,0 +1,72 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ajax</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<style type="text/css">
+		body{
+	         margin: 0;
+	         padding: 0;
+	         text-align: center;
+	         align-items: center;
+
+          }
+
+         h1{
+	         margin-top: 5%;
+	         margin-bottom: 5%;
+         }
+
+         label{
+         	display: inline-block;
+         	width: 0;
+         	margin-right:6%;
+         }
+         input[type='text']{
+         	width:20%;
+         	height: 10%;
+         	margin-bottom: 2%;
+         }
+          input[type='submit']{
+         	background-color: violet;
+         	color: blue;
+         }
+	</style>
+</head>
+<body>
+
+	<h1> Django Ajax Example</h1>
+
+	<!--formulaire-->
+
+	<form method="POST">
+		<!-- recuperation du jeton-->
+
+		{% csrf_token %}
+
+		<!-- si on inpecte ke code html via le navigateur on verra que le csrf_token a ette remplacee par un <input type="hidden" name=csrfm.....--->
+
+	      <label>Operation:</label>
+	      <input type="text" name="" id="a"> + <input type="text" name="" id="b">
+	      <input type="submit" name="" value="Calculer" id="ajax-call">
+	 
+	      <!--Nous affichons le resultats-->
+	      <p id="ajax1"></p>
+	      <p id="ajax2"></p>
+	      <p id="ajax3"></p>
+	</form> 
+	<h3 style="margin-top: 10%;"><u> Using Ajax Example by Fotso &copy; 2021 </u></h3>
+
+
+<script type="text/javascript" src="{% static 'js/code1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/code2.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/code3.js' %}"></script>
+
+
+
+</body>
+</html>

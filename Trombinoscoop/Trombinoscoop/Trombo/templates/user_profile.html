@@ -1,0 +1,96 @@
+{% extends 'base.html' %} 
+{% load  static %}
+
+{%block title %}Création d' un profil{% endblock %}
+ 
+{% block css %}
+   <link rel="stylesheet" type="text/css" href="{% static 'css/cssuser_profile.css' %}" />
+{% endblock %}
+
+{% block bodyld %}userProfilePage{% endblock %}
+
+{% block content %} 
+
+  <!-- usage de ajax -->
+
+  <Script type="text/javascript"> 
+    $(document).ready(function()
+      { 
+        $("input #id_courriel").focusout(checkEmailField) ; 
+      }); 
+   
+   function checkEmailField() { 
+      alert('Courriel introduit . On va mai ntenant le valider. ');
+
+      $fieldValue = $("input#id_courriel ").val();
+      $.ajax({ 
+  
+       url : '/ajax/checkEmailField', 
+       data: ({value : $fieldValue}) ,
+       type: 'GET',
+       success: function($data, $textStatus, $XMLHttpRequest) { 
+         if ($data != '') { 
+           // alert($data) ;
+           $("input#id_courriel ").parent().prev('.errorlist').remove(); 
+           $("input#id_courriel ").parent().before($data); 
+         } 
+       } 
+      });  
+   } 
+  </script> 
+  
+  <form> 
+  	<p> 
+  		<label for="profileType" style="font:35px Monotype Corsiva;"><u>Vous êtes :</u></label> 
+
+  		<select id="profileType" onchange="displayRightForm()">
+  			<option value="student" {%if studentForm.is_bound %} selected="selected" {% endif %}>Étudiant</option> 
+  			<option value="employee" {%if employeeForm.is_bound %} selected="selected" {% endif %}>Employé</option> 
+  		</select> 
+  	</p> 
+  </form>
+
+
+  <form action="register" method="get" id="studentForm"> 
+  	{{ studentForm.as_p }} 
+
+  	<p> 
+  		<input type="hidden" name="profileType" value="student" /> 
+  		<input type="submit" value="Créer un compte" /> 
+  	</p> 
+  </form> 
+  
+  <form action="register " method="get" id="employeeForm"> 
+  	{{ employeeForm.as_p }} 
+
+  	<p> 
+  		<input type="hidden" name="profileType" value="employee" />
+  		<input type="submit" value="Créer un compte" /> 
+  	</p> 
+  </form> 
+
+{% endblock %} 
+
+ 
+{% block js %} 
+
+     <script type="text/javascript">
+
+         function displayRightForm(){ 
+
+           if ($('#profileType').val() == 'student') { 
+             $('#employeeForm').hide(); 
+             $('#studentForm').show(); 
+           } else { 
+             $('#studentForm').hide() ; 
+             $('#employeeForm').show() ; 
+           }
+         } 
+        
+        $(document).ready(displayRightForm);
+        $( '#profileType').change(displayRightForm); 
+
+    </script>
+
+
+{% endblock %} 

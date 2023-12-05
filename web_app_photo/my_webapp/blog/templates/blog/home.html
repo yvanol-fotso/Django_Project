@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<main style=" display: flex; min-height: 400px;">
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 300px;">
+
+      <span class="fs-4">My Web App</span>
+
+
+    <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">
+
+          {% if user.is_authenticated %}
+                {% if user.profile_photo %}
+                    <img class="avatar" src="{{ user.profile_photo.url }}" width="100px" height="100px" style="margin-left: 15%;border-radius: 50px;">
+                {% else %}
+                    <img class="avatar" src="{% static 'img/profil.jpg' %}" width="100px" height="100px" style="margin-left: 15%;border-radius: 50px;">
+                {% endif %}
+
+                <p class="text" style="margin: 5%;">Salut, {{ user }} !</p>
+
+          {% endif %}
+
+        </a>
+
+    </li>
+
+    <hr>
+
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="{% url 'blog:home' %}" class="nav-link active" aria-current="page">
+ 
+          Home
+
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'blog:photo_upload' %}" class="nav-link text-white">
+          
+          Upload Image/publier une image
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'authentication:upload_profile_photo' %}" class="nav-link text-white">
+          
+          Changer sa Photo de profile
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'authentication:password_change' %}" class="nav-link text-white">
+          
+          Change le mot de passe
+
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'authentication:logout' %}" class="nav-link text-white">
+          
+          se deconnecter
+        </a>
+      </li>
+    </ul>
+
+
+    <hr>
+
+  </div>
+
+
+   
+
+
+   <div class="left" style="margin-left: 5%">
+   	
+      <h2 class="text text-info" style="text-align: center;">Photos</h2>
+
+
+    <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+    	 {% for photo in photos  %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+
+             <img src="{{ photo.image.url }}" width="150px" height="100px">
+
+            
+            <div class="card-body">
+              <p class="card-text">{{ photo.caption }}</p>
+              
+            </div>
+          </div>
+        </div>
+        
+      {% endfor %}    
+         
+
+     </div>
+ 
+   </div>
+</div>
+
+ 
+</main>
+
+{% endblock content %}

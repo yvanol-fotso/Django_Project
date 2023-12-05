@@ -1,0 +1,49 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	align-items: center;
+
+}
+
+h1{
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+form input[name='name']{
+	width: 30%;
+
+}
+
+form input[name='hotel_image']{
+	width: 30%;
+}
+/* or */
+
+form input[type='file']{
+	width: 30%;
+}
+
+form input[type="submit"]{
+	width: 30%;
+	color: green;
+}
+
+ /* or */
+button{
+   width: 30%;
+   color: green;
+  margin-left: 3%;
+}
+
+
+p a{
+	margin-top: 2%;
+	display: inline-block;
+	border: solid;
+	width:30%;
+	padding: 2%;
+	background-color: violet;
+	color: white;
+}

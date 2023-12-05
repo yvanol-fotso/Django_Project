@@ -1,0 +1,49 @@
+{% extends "base.html" %} 
+{% load  static %}
+
+{% block title %}Affichage d'un profil{% endblock %} 
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/csshowprofil.css' %}" />{% endblock %}
+
+{% block bodyid %}showProfilePage{% endblock %}
+
+{% block content %} 
+  <hl style="font:35px Monotype Corsiva;"><u>Affichage d'un profil</u></hl> 
+  <dl class="fieldlist"> 
+  	 <dt>Nom :</dt> 
+  	  <dd>{{ user_to_show.nom }}</dd> 
+  	 <dt>Prénom :</dt> 
+  	   <dd>{{ user_to_show.prenom }}</dd> 
+  	 <dt>Date de naissance :</dt> 
+  	    <dd>{{ user_to_show.date_de_naissance }}</dd> 
+  	 <dt>Matricule :</dt> 
+  	    <dd>{{ user_to_show.matricule }}</dd> 
+  	 <dt>Courriel :</dt> 
+  	    <dd>{{ user_to_show.courriel }}</dd> 
+  	 <dt>Tél . fixe :</dt> 
+  	    <dd>{{ user_to_show.tel_fixe }}</dd> 
+  	 <dt>Tél . mobile :</dt> 
+  	    <dd>{{ user_to_show.tel_mobile }}</dd> 
+  	 <dt>Faculté :</dt> 
+  	    <dd>{{ user_to_show.faculte.nom }}</dd> 
+  	      {%if user_to_show.type_de_personne == "student" %} 
+
+  	 <dt>Cursus :</dt> 
+  	    <dd>{{ user_to_show.cursus.intitule }}</dd> 
+
+  	 <dt>Année :</dt> 
+  	    <dd>{{ user_to_show.annee }}</dd>
+  	      {% elif user_to_show.type_de_personne == "employee" %} 
+  	  <dt>Bureau :</dt> 
+  	    <dd>{{ user_to_show.bureau }}</dd> 
+  	  <dt>Campus :</dt> 
+  	    <dd>{{ user_to_show.campus.nom }}</dd> 
+  	  <dt>Fonction :</dt> 
+  	    <dd>{{ user_to_show.fonction.intitule }}</dd> 
+ 
+         {% endif %} 
+   </dl> 
+ <p id="showProfileNavigationBut tons"> 
+ 	<a href="welcome" class="buttonlink">Retour / Back</a> 
+ </p> 
+
+ {% endblock %} 

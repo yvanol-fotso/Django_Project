@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% load  static %}
+
+{% block title %}Modification de mon profil{% endblock %} 
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/cssmodifyprof.css' %}" />{% endblock %}
+
+{% block bodyld %}modifyProfilePage{% endblock %}
+
+{% block content %} 
+  <hl style="font:35px Monotype Corsiva;"><u>Modification de mon profil</u></hl> 
+  <form action="modify_profile" method="get"> 
+  	{{ form.as_p }} 
+
+  	<p> 
+  		<input type="submit" value="Modifier" /> 
+  	</p> 
+  </form> 
+{% endblock %} 

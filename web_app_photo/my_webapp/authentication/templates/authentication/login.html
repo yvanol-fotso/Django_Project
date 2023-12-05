@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}login | {{ site_name }}{% endblock title %}
+
+{% block content %}
+   <!-- Main product Layout View -->
+    <main class="p-5">
+        <div class="container">
+            <!-- Grid row -->
+            <section class="row justify-content-center p-3">
+                <div class="col-md-5 col-sm-10">
+                    <div class="d-flex align-items-md-center">
+                        <div class="col">
+                            <h3 class="font-weight-bold text-success text-capitalize">
+                                login {{ message }}
+                            </h3>
+                            <p class="text-muted mb-4 text-justify">
+                                Please enter your username and password to login.
+                            </p>
+
+                            {% if form.non_field_errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for error in form.non_field_errors %}
+                                        <p {% if forloop.last %} class="mb-0"{% endif %}>
+                                        {{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            <form method="POST" novalidate>
+                                {% csrf_token %}
+                                <div class="md-form form-group mb-3">
+                                    <input id="{{ form.username.id_for_label }}"
+                                    type="text" name="{{ form.username.name }}" class="form-control" placeholder="{{ form.username.label }}">
+                                </div> <!-- /.username input -->
+
+                                <div class="md-form form-group mb-3">
+                                    <input id="{{ form.password.id_for_label }}" type="password" name="{{ form.password.name }}" class="form-control" placeholder="{{ form.password.label }}">
+                                </div> <!-- /.password input -->
+
+                                <div class="d-flex justify-content-between pt-2 mb-3">
+                                    <div>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input"
+                                                id="customSwitch">
+                                            <label for="customSwitch" class="custom-control-label">
+                                                remember me
+                                            </label>
+                                        </div>
+                                    </div><!-- /.checkbox -->
+
+                                    <div>
+                                        <a href="#" class="text-danger text-nowrap">
+                                            lost password ?
+                                        </a>
+                                    </div><!-- /.lost password -->
+                                </div>
+
+                                <button type="submit" class="btn btn-success btn-block btn-sm text-uppercase mb-3 rounded-pill shadow-sm">
+                                    login
+                                </button><!-- /.button login -->
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- content -->
+
+                <div class="border d-none d-md-block m-3"></div>
+
+                <div class="col-md-5">
+                    <div class="d-none d-md-flex align-items-md-center">
+                        <div class="col">
+                            <h3 class="font-weight-bold text-capitalize text-success">
+                                create an account
+                            </h3>
+                            <p class="text-muted my-4 text-justify">
+                                Create your customer account in a few clicks ! You can register by using your email address.
+                            </p>
+
+                            <a href="{% url 'authentication:signup' %}" class="btn btn-success btn-block btn-sm text-uppercase rounded-pill shadow-sm">sign up</a><!-- /.login link -->
+                        </div>
+                    </div>
+                </div>
+            </section><!-- ./Grid row -->
+        </div>
+    </main><!-- ./Main product Layout View -->
+{% endblock content %}

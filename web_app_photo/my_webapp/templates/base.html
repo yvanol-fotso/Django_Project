@@ -1,0 +1,58 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
+        <!-- meta header-->
+        {% include "_includes/csslink.html" %}
+         <!-- ./meta header -->
+
+        <!-- titre -->
+        <title>
+            {% block title %}
+                {% if page_title %}
+                    {{ page_title }} |
+                {% endif %}
+                    {{ site_name }} | {{ site_desc }}
+            {% endblock title %}
+        </title>
+        <!-- ./titre -->
+    </head>
+
+
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 flex-shrink-0">
+            <!-- Start your project here-->
+            {% include "_includes/navbar.html" %}
+            <!-- Caroussel -->
+            {% block carousel %}
+            {% endblock carousel %}
+
+            <!-- Contenu de la page -->
+            {% block content %}
+            {% endblock content %}
+
+            {% if user.is_authenticated %}
+
+            <p style="text-align: center;" class="text text-info"> Vous etes bien connecter en tant que {{ request.user }} !!
+
+            <a href="{% url 'authentication:logout' %}" style="text-align: center;" class="text text-success">Se Deconnecter</a>
+
+            </p>
+
+            {# commentaire sur une ligne #}
+
+            {% comment %}
+               commentaire sur plusieur ligne...
+            {% endcomment %}   
+
+
+            {% endif %}
+
+        </div>
+
+        {% include "_includes/footer.html" %}
+        {% include "_includes/jscripts.html" %}
+    </body>
+</html>

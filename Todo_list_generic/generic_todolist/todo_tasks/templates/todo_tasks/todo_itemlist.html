@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+{% for task in object_list %}
+
+<div style="margin-top: 5%; text-align: center; align-items: center; border-bottom: solid 1px gray;">
+
+<h2 class="text text-success"> My ToDo  {{task.id}}</h2>
+
+
+<li style="list-style:none; margin: 2%"> body: {{ task.body }}</li>
+<li style="list-style:none; margin: 2% "> date :{{ task.due_date }}</li>
+<li style="list-style:none; margin: 2% "> category: {{ task.category }}</li>
+
+<button style="border: none;"><a href="{% url 'todo:todo_update' task.id %}"  class="btn btn-info btn-sm text-white">Update</a></button>
+<button style="border: none;"><a href="{% url 'todo:todo_delete' task.id %}" class="btn btn-info btn-sm text-white">Delete</a></button>
+
+<br><br>
+
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
